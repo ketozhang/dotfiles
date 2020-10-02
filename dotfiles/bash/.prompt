@@ -1,0 +1,4 @@
+PS1="\[\033[38;5;29m\]\h@\u:\[$(tput sgr0)\]\[\033[38;5;12m\]\w\[$(tput sgr0)\]\n\[$(tput bold)\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+
+# Add newline before PS1
+PS1="\n$PS1"

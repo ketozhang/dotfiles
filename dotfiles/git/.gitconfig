@@ -1,0 +1,13 @@
+[user]
+        email = keto.zhang@gmail.com
+        name = Keto Zhang
+[alias]
+        wip = "!git add -A; git commit -m WIP"
+        amend = "!git commit --amend"
+        ammend = "!git amend"
+        repush = "!git add -u; git commit --amend; git push -f"
+        repushu = "!git add -A; git commit --amend; git push -f"
+        lg = "!git log --all --decorate --graph"
+
+[push]
+        default = current

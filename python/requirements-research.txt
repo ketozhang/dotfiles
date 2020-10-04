@@ -1,8 +1,10 @@
 ipython
 jupyter
 jupyterlab
-matplotlib 
+matplotlib
 pandas
 scipy
 seaborn
 sklearn
+tqdm
+

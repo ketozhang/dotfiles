@@ -1,0 +1,88 @@
+# IMMEDIATE ESSENTIALS
+
+1.  Fix alternative drive permission:
+    `sudo mount -t drvfs D: /mnt/d -o metadata`
+2.  Install the following:
+
+    - build-essential
+    - openssh-client
+    - openssh-server
+    - [anaconda](https://www.anaconda.com/distribution/#linux)
+      ```sh
+      # Remove the "(base)" from PS1
+      # Hmm doesn't work for zsh
+      conda config --set changeps1 False
+      ```
+    - zsh
+
+      ```
+      # Set zsh as default shell
+      chsh -s $(which zsh); logout
+      ```
+
+    - oh-my-zsh
+    - zsh config
+
+      ```sh
+      ln -s ~/.profile ~/.zprofile
+      ```
+
+      ```sh
+      # ~/.bashrc
+      # ZSH
+      source ~/.profile
+      ```
+
+# APT
+
+- neovim
+
+  - Config
+
+    ```sh
+    mkdir ~/.nvim && touch ~/.nvim/.nvimrc
+    ln -s ~/.nvim/.nvimrc ~/.nvim
+    ```
+
+- imagemagick
+- sqlite3
+- flatpak
+- gnome-software-plugin-flatpak
+- synaptic
+- build-essentials
+- cmake
+- vim
+- vim-gnome
+- nvim
+- openssh-server
+- putty-tools
+- powerline-fonts
+- gnome-shell-extensions
+- chrome-gnome-shell
+- dos2unix
+- tree
+- ffmpeg
+- ubuntu-restricted-extras
+- rename
+- p7zip-full
+- Windscribe
+- qBittorrent
+- xrdp
+
+# PIP (only those that have CLI)
+
+- Pipenv
+
+# Fonts
+
+- Menlo for Powerline (`/usr/local/share/fonts`)
+- Cascadia Code/Mono [PL]
+
+# Others
+
+- zsh-autosuggestions
+- zsh-syntax-highlighting
+- rc.local (`sudo systemctl enable rc-local`)
+- CUDA 10
+  [](https://www.linuxbabe.com/linux-server/how-to-enable-etcrc-local-with-systemd)
+- [Pure Prompt](https://github.com/sindresorhus/pure)

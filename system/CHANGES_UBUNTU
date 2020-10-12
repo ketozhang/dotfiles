@@ -1,0 +1,85 @@
+This changes are for Ubuntu 18.04 LTS
+
+# INITIAL ESSENTIALS
+1. Update via Software Updater (make sure to stay in LTS).
+2. Move user files to /home/<user>/ if needed.
+3. Enable additional repository in "Software & Update"
+4. Update Nvidia Graphics:
+	```sudo ubuntu-drivers autoinstall```
+4. Replace Nautilus with Nemo:
+    ```
+    sudo apt install nemo
+    xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search    
+    ```
+5. Install the following:
+	* build-essential
+	* gnome-tweak-tool
+	* communitheme
+	* anaconda
+	* vscode
+	* ubuntu-restricted-extras
+	* flatpak
+	* gnome-software-plugin-flatpak
+
+# GUI
+* VSCode
+* Meteo
+* Calculator (Snap -> Deb)
+
+# APT
+* samba
+* imagemagick
+* sqlite3
+* flatpak
+* gnome-software-plugin-flatpak
+* synaptic
+* build-essentials
+* cmake
+* vim
+* vim-gnome
+* nvim
+* openssh-server
+* putty-tools
+* zsh
+	`chsh -s (which zsh); logout`
+* powerline-fonts
+* gnome-shell-extensions 
+* chrome-gnome-shell
+* dos2unix
+* tree
+* ffmpeg
+* ubuntu-restricted-extras
+* rename
+* p7zip-full
+* Windscribe
+* qBittorrent
+* xrdp 
+* nvidia-xxx (need ppa)
+
+# PIP (only those that have CLI)
+* Pipenv
+
+# NVM
+* NodeJS & NPM (`nvm install node`)
+
+# NPM
+* pure-prompt
+
+# Settings
+* Application launcher animation (`gsettings set org.gnome.desktop.interface enable-animations false`)
+
+* Change shell to zsh (`chsh -s zsh`)
+
+# Fonts
+* Menlo for Powerline (`/usr/local/share/fonts`)
+
+# Others
+* Anaconda
+    * `conda config --set changeps1 False`
+* oh-my-zsh
+* zsh-nvm
+* zsh-autosuggestions
+* zsh-syntax-highlighting
+* rc.local (`sudo systemctl enable rc-local`)
+* CUDA 10
+	[](https://www.linuxbabe.com/linux-server/how-to-enable-etcrc-local-with-systemd)

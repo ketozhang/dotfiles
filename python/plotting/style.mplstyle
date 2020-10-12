@@ -21,10 +21,10 @@ xtick.direction: in
 ytick.direction: in
 xtick.minor.visible: True
 ytick.minor.visible: True
-xtick.minor.size: 8
-ytick.minor.size: 12
 xtick.major.size: 12
-ytick.major.size: 8
+xtick.minor.size: 8
+ytick.major.size: 12
+ytick.minor.size: 8
 
 # Legend
 legend.frameon: False

@@ -129,7 +129,7 @@
 
 ## Reload the webapp when changes are made to any Python src files.
 #  Default: False
-# c.NotebookApp.autoreload = False
+c.NotebookApp.autoreload = True
 
 ## DEPRECATED use base_url
 #  Default: '/'
@@ -590,7 +590,7 @@ c.LabApp.allow_origin = '*'
 
 ## Reload the webapp when changes are made to any Python src files.
 #  See also: NotebookApp.autoreload
-# c.LabApp.autoreload = False
+c.LabApp.autoreload = True
 
 ## DEPRECATED use base_url
 #  See also: NotebookApp.base_project_url

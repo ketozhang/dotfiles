@@ -9,6 +9,7 @@ figure.titlesize: 24 # 1.5em
 axes.autolimit_mode: round_numbers
 axes.linewidth: 3
 axes.titlesize : 19.2 # 1.2em
+axes.xmargin: 0
 
 # Lines
 lines.linewidth: 4
@@ -18,7 +19,7 @@ hatch.linewidth: 2
 # Markers
 lines.markersize: 5
 
-# Ticks
+# Ticks and Labels
 xtick.direction: in
 ytick.direction: in
 xtick.minor.visible: True
@@ -27,6 +28,9 @@ xtick.major.size: 12
 xtick.minor.size: 8
 ytick.major.size: 12
 ytick.minor.size: 8
+
+xtick.labelsize : 16
+ytick.labelsize : 16
 
 # Legend
 legend.frameon: False

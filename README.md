@@ -3,7 +3,7 @@
 ### Bash
 
 ```sh
-$ echo "source /path/to/profile/dotfiles/.bashrc" >> ~/.bashrc
+$ bash /path/to/profile/dotfiles/setup.sh
 ```
 
 ## Python

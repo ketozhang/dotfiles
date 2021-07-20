@@ -2,24 +2,25 @@
 # Let base font size be 16px (1em)
 
 # Figure
-figure.figsize: 10, 6
+figure.figsize: 8.0, 6.0
 figure.titlesize: 24 # 1.5em
 
 # Axes
-axes.autolimit_mode: round_numbers
-axes.linewidth: 3
-axes.titlesize : 19.2 # 1.2em
+axes.linewidth: 2
+axes.titlesize : 24 # 1.5em
+axes.labelsize: 18.72 # 1.17em
+axes.labelpad: 8
 axes.xmargin: 0
 
-# Lines
-lines.linewidth: 4
-patch.linewidth: 2.2
+# Lines and Patches
+lines.linewidth: 3
+patch.linewidth: 3
 hatch.linewidth: 2
 
 # Markers
-lines.markersize: 5
+lines.markersize: 8
 
-# Ticks and Labels
+# Ticks and Tick Labels
 xtick.direction: in
 ytick.direction: in
 xtick.minor.visible: True
@@ -29,12 +30,21 @@ xtick.minor.size: 8
 ytick.major.size: 12
 ytick.minor.size: 8
 
-xtick.labelsize : 16
+xtick.labelsize : 16 
 ytick.labelsize : 16
+xtick.major.pad: 10
+ytick.major.pad: 3.5 
 
 # Legend
-legend.frameon: False
+legend.frameon: True
+legend.fancybox: False
 legend.fontsize: 16
+
+# Histogram
+hist.bins: 20
+
+# Errorplot
+errorbar.capsize: 2
 
 # Colors
 # Credit: https://gist.github.com/huyng/816622

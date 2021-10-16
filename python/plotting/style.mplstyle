@@ -30,10 +30,10 @@ xtick.minor.size: 8
 ytick.major.size: 12
 ytick.minor.size: 8
 
-xtick.labelsize : 16 
+xtick.labelsize : 16
 ytick.labelsize : 16
 xtick.major.pad: 10
-ytick.major.pad: 3.5 
+ytick.major.pad: 3.5
 
 # Legend
 legend.frameon: True
@@ -56,3 +56,6 @@ errorbar.capsize: 2
 # CF4457 : pink
 # 467821 : green
 axes.prop_cycle:  cycler('color', ['4c72b0', 'dd8452', '55a868', 'c44e52', '348ABD', 'A60628', '467821', 'E24A33'])
+
+# Errorbar Plot
+errorbar.capsize: 3  # length of end cap on error bars in pixels

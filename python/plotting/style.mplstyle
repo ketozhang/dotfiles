@@ -6,15 +6,17 @@ figure.figsize: 8.0, 6.0
 figure.titlesize: 24 # 1.5em
 
 # Axes
-axes.linewidth: 2
+axes.linewidth: 2.5
 axes.titlesize : 24 # 1.5em
 axes.labelsize: 18.72 # 1.17em
 axes.labelpad: 8
-axes.xmargin: 0
+axes.xmargin:   0.08
+axes.ymargin:   0.08
+axes.zmargin:   0.08
 
 # Lines and Patches
-lines.linewidth: 3
-patch.linewidth: 3
+lines.linewidth: 2.5
+patch.linewidth: 2.5
 hatch.linewidth: 2
 
 # Markers
@@ -25,15 +27,21 @@ xtick.direction: in
 ytick.direction: in
 xtick.minor.visible: True
 ytick.minor.visible: True
+
 xtick.major.size: 12
-xtick.minor.size: 8
+xtick.minor.size: 6
 ytick.major.size: 12
-ytick.minor.size: 8
+ytick.minor.size: 6
+xtick.major.width: 2
+xtick.minor.width: 1.25
+ytick.major.width: 2
+ytick.minor.width: 1.25
+xtick.major.pad: 10
+ytick.major.pad: 3.5
 
 xtick.labelsize : 16
 ytick.labelsize : 16
-xtick.major.pad: 10
-ytick.major.pad: 3.5
+
 
 # Legend
 legend.frameon: True
@@ -41,7 +49,7 @@ legend.fancybox: False
 legend.fontsize: 16
 
 # Histogram
-hist.bins: 20
+hist.bins: auto
 
 # Errorplot
 errorbar.capsize: 2
@@ -56,6 +64,3 @@ errorbar.capsize: 2
 # CF4457 : pink
 # 467821 : green
 axes.prop_cycle:  cycler('color', ['4c72b0', 'dd8452', '55a868', 'c44e52', '348ABD', 'A60628', '467821', 'E24A33'])
-
-# Errorbar Plot
-errorbar.capsize: 3  # length of end cap on error bars in pixels

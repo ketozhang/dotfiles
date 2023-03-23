@@ -1,18 +1,22 @@
 [user]
-    email = keto.zhang@gmail.com
-    name = Keto Zhang
+    email = ketoz@ipac.caltech.edu
+    name = Keto D. Zhang
 [alias]
     wip = "!git add -A; git commit -m WIP"
+    commitall = "!git commit --all"
     amend = "!git commit --amend"
     ammend = "!git amend"
-    repush = "!git add -u; git commit --amend; git push -f"
-    repushu = "!git add -A; git commit --amend; git push -f"
-    lg = "!git log --decorate --graph"
-    lga = "!git log --all --decorate --graph"
-
+    amendall = "!git add -u && git amend"
+    lg = "!git log --oneline --graph"
+    recent = "!f() { git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n${1-10}; }; f"
+[core]
+    excludesfile = ~/.gitignore
+	autocrlf = false
 [push]
     default = current
 [credential]
-    helper = cache
-[pull]
-    rebase = false
+    helper = osxkeychain
+[submodule]
+    recurse = true
+[init]
+    defaultBranch = main

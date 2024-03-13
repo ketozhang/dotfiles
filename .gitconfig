@@ -14,14 +14,18 @@
     fixup = "!git commit --fixup"
 [core]
     excludesfile = ~/.gitignore
-	autocrlf = false
+    autocrlf = false
 [push]
     default = current
-[credential]
-    helper = osxkeychain
 [submodule]
     recurse = true
 [init]
     defaultBranch = main
 [http]
     postBuffer = 524288000
+[credential]
+    helper = osxkeychain
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential

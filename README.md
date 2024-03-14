@@ -1,10 +1,10 @@
 ## Dotfiles
 
-### Bash
-
-```sh
-$ bash /path/to/profile/dotfiles/setup.sh
+```console
+$ make
 ```
+
+Uses stow to symlink dotfiles in this repository to home directory.
 
 ## Python
 

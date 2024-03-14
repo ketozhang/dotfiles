@@ -10,6 +10,11 @@ ZSH_HOME=$HOME/.zsh
         https://github.com/marlonrichert/zsh-snap.git $ZSH_HOME/znap
 source $ZSH_HOME/znap/znap.zsh  # Start Znap
 
+################################################################################
+# Environment
+################################################################################
+export XDG_CONFIG_HOME=$HOME/.config
+
 ########################################################################################
 # Prompt
 ########################################################################################
@@ -27,7 +32,7 @@ znap source zsh-users/zsh-syntax-highlighting
 
 
 ########################################################################################
-# COMPLETIONS
+# Completion
 ########################################################################################
 znap install zsh-users/zsh-completions
 
@@ -36,3 +41,4 @@ compctl -K    _pip_completion pip
 
 znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
 compctl -K    _aws_completion aws
+

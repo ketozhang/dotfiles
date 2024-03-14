@@ -41,4 +41,3 @@ compctl -K    _pip_completion pip
 
 znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
 compctl -K    _aws_completion aws
-

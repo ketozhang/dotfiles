@@ -4,4 +4,4 @@ osx:
 	ln -s $(STYLE_FPATH) ~/.matplotlib/
 
 linux:
-	ln -s $(STYLE_FPATH) ~/.config/matplotlib/ 
+	ln -s $(STYLE_FPATH) ~/.config/matplotlib/

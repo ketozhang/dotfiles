@@ -14,6 +14,7 @@ source $ZSH_HOME/znap/znap.zsh  # Start Znap
 # Environment
 ################################################################################
 source  $HOME/.env
+source  $HOME/.secrets.env
 
 ########################################################################################
 # Prompt
@@ -24,6 +25,7 @@ znap prompt sindresorhus/pure
 # Plugins
 ########################################################################################
 znap source marlonrichert/zsh-autocomplete
+znap source xylous/gitstatus
 
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 znap source zsh-users/zsh-autosuggestions
@@ -36,8 +38,28 @@ znap source zsh-users/zsh-syntax-highlighting
 ########################################################################################
 znap install zsh-users/zsh-completions
 
+# Reset history key bindings to Zsh default
+# () {
+#    local -a prefix=( '\e'{\[,O} )
+#    local -a up=( ${^prefix}A ) down=( ${^prefix}B )
+#    local key=
+#    for key in $up[@]; do
+#       bindkey "$key" up-line-or-history
+#    done
+#    for key in $down[@]; do
+#       bindkey "$key" down-line-or-history
+#    done
+# }
+
 znap function _pip_completion pip       'eval "$( pip completion --zsh )"'
 compctl -K    _pip_completion pip
 
+if ! type "aws_completer" > /dev/null; then
+  aws_completer
+fi
+
 znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
 compctl -K    _aws_completion aws
+
+znap eval fzf 'fzf --zsh'
+

@@ -2,21 +2,25 @@
     email = keto.zhang@gmail.com
     name = Keto D. Zhang
 [alias]
-    wip = "!git add -u; git commit -m WIP"
-    wipall = "!git add -A; git commit -m WIP"
+    s = "!git status"
+    c = "!git commit"
+    wip = "!git add -u && git commit -m WIP"
+    wipall = "!git add -A && git commit -m WIP"
     commitall = "!git commit --all"
     amend = "!git commit --amend"
     ammend = "!git amend"
     amendall = "!git add -u && git amend"
-    l = "!git log --oneline"
+    l = "!git log --pretty=format:'%C(yellow)%h %Cred%ad %Cgreen%d %Creset%s' --date=relative"
     lg = "!git log --oneline --graph"
     recent = "!f() { git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n${1-10}; }; f"
     fixup = "!git commit --fixup"
+    autosquash = "!git rebase -i --autosquash"
 [core]
     excludesfile = ~/.gitignore
     autocrlf = false
 [push]
     default = current
+	autoSetupRemote = true
 [submodule]
     recurse = true
 [init]
@@ -25,7 +29,10 @@
     postBuffer = 524288000
 [credential]
     helper = osxkeychain
+
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential

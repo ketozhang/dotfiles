@@ -54,7 +54,7 @@ znap install zsh-users/zsh-completions
 znap function _pip_completion pip       'eval "$( pip completion --zsh )"'
 compctl -K    _pip_completion pip
 
-if ! type "aws_completer" > /dev/null; then
+if command -v "aws_completer" &> /dev/null; then
   aws_completer
 fi
 
@@ -62,4 +62,3 @@ znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws
 compctl -K    _aws_completion aws
 
 znap eval fzf 'fzf --zsh'
-

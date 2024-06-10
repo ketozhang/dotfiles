@@ -1,6 +1,10 @@
 .PHONY: all stow
+ENVFILES := .env .secrets.env
 
 all: stow
 
-stow:
+stow: $(ENVFILES)
 	stow -t ${HOME} .
+
+$(ENVFILES):
+	touch $@

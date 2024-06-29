@@ -13,8 +13,9 @@ source $ZSH_HOME/znap/znap.zsh  # Start Znap
 ################################################################################
 # Environment
 ################################################################################
-source  $HOME/.env
+source  $HOME/.global.env
 source  $HOME/.secrets.env
+source  $HOME/.env
 
 ########################################################################################
 # Prompt
@@ -61,4 +62,32 @@ fi
 znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
 compctl -K    _aws_completion aws
 
-znap eval fzf 'fzf --zsh'
+znap eval brew "/home/linuxbrew/.linuxbrew/bin/brew shellenv"
+znap eval fzf "fzf -zsh"
+
+
+. "$HOME/.cargo/env"
+
+
+########################################################################################
+# Keybindings
+########################################################################################
+### ctrl+arrows
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+# urxvt
+bindkey "\eOc" forward-word
+bindkey "\eOd" backward-word
+
+### ctrl+delete
+bindkey "\e[3;5~" kill-word
+# urxvt
+bindkey "\e[3^" kill-word
+
+### ctrl+backspace
+bindkey '^H' backward-kill-word
+
+### ctrl+shift+delete
+bindkey "\e[3;6~" kill-line
+# urxvt
+bindkey "\e[3@" kill-line

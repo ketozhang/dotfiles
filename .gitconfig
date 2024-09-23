@@ -4,8 +4,8 @@
 [alias]
     s = "!git status"
     c = "!git commit"
-    wip = "!git add -u && git commit -m WIP"
-    wipall = "!git add -A && git commit -m WIP"
+    wip = "!git add -u && git commit -m WIP --no-verify"
+    wipall = "!git add -A && git commit -m WIP --no-verify"
     commitall = "!git commit --all"
     amend = "!git commit --amend"
     ammend = "!git amend"
@@ -14,10 +14,13 @@
     lg = "!git log --oneline --graph"
     recent = "!f() { git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n${1-10}; }; f"
     fixup = "!git commit --fixup"
+    add-fixup = "!git add -u && git fixup"
+    fu = "!git add-fixup"
     autosquash = "!git rebase -i --autosquash"
 [core]
     excludesfile = ~/.gitignore
     autocrlf = false
+	editor = vim
 [push]
     default = current
 	autoSetupRemote = true
@@ -36,3 +39,15 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !gh auth git-credential
+[maintenance]
+	repo = /Users/keto/.zsh/znap
+	repo = /Users/keto/.zsh/zsh-dircolors-solarized
+	repo = /Users/keto/.zsh/Aloxaf/fzf-tab
+	repo = /Users/keto/.zsh/junegunn/fzf-git.sh
+	repo = /Users/keto/.zsh/marlonrichert/zsh-autocomplete
+	repo = /Users/keto/.zsh/ohmyzsh/ohmyzsh
+	repo = /Users/keto/.zsh/sindresorhus/pure
+	repo = /Users/keto/.zsh/xylous/gitstatus
+	repo = /Users/keto/.zsh/zsh-users/zsh-autosuggestions
+	repo = /Users/keto/.zsh/zsh-users/zsh-completions
+	repo = /Users/keto/.zsh/zsh-users/zsh-syntax-highlighting

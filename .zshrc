@@ -1,3 +1,6 @@
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zmodload zsh/zprof
+fi
 ZSH_HOME=$HOME/.zsh
 
 ########################################################################################
@@ -10,9 +13,9 @@ ZSH_HOME=$HOME/.zsh
         https://github.com/marlonrichert/zsh-snap.git $ZSH_HOME/znap
 source $ZSH_HOME/znap/znap.zsh  # Start Znap
 
-################################################################################
+########################################################################################
 # Environment
-################################################################################
+########################################################################################
 source  $HOME/.global.env
 source  $HOME/.secrets.env
 source  $HOME/.env
@@ -25,20 +28,12 @@ znap prompt sindresorhus/pure
 ########################################################################################
 # Plugins
 ########################################################################################
-znap source marlonrichert/zsh-autocomplete
+# znap source marlonrichert/zsh-autocomplete
 znap source xylous/gitstatus
-
-ZSH_AUTOSUGGEST_STRATEGY=( history completion )
-znap source zsh-users/zsh-autosuggestions
-
 znap source zsh-users/zsh-syntax-highlighting
-
-
-########################################################################################
-# Completion
-########################################################################################
 znap install zsh-users/zsh-completions
-
+znap source zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 # Reset history key bindings to Zsh default
 # () {
 #    local -a prefix=( '\e'{\[,O} )
@@ -51,8 +46,15 @@ znap install zsh-users/zsh-completions
 #       bindkey "$key" down-line-or-history
 #    done
 # }
+znap eval fzf 'fzf --zsh'
+znap source Aloxaf/fzf-tab
+zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab
+########################################################################################
+# INSTALL COMPLETIONS
+########################################################################################
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-znap function _pip_completion pip       'eval "$( pip completion --zsh )"'
+znap function _pip_completion pip       'eval "$( pip3 completion --zsh )"'
 compctl -K    _pip_completion pip
 
 if command -v "aws_completer" &> /dev/null; then
@@ -61,13 +63,6 @@ fi
 
 znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
 compctl -K    _aws_completion aws
-
-znap eval brew "/home/linuxbrew/.linuxbrew/bin/brew shellenv"
-znap eval fzf "fzf -zsh"
-
-
-. "$HOME/.cargo/env"
-
 
 ########################################################################################
 # Keybindings
@@ -91,3 +86,8 @@ bindkey '^H' backward-kill-word
 bindkey "\e[3;6~" kill-line
 # urxvt
 bindkey "\e[3@" kill-line
+################################################################################
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zprof
+fi
+

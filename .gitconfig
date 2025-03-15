@@ -17,6 +17,7 @@
     add-fixup = "!git add -u && git fixup"
     fu = "!git add-fixup"
     autosquash = "!git rebase -i --autosquash"
+    set-upstream = "!git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)"
 [core]
     excludesfile = ~/.gitignore
     autocrlf = false

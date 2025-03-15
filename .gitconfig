@@ -22,6 +22,7 @@
     excludesfile = ~/.gitignore
     autocrlf = false
 	editor = vim
+	filemode = false
 [push]
     default = current
 	autoSetupRemote = true

@@ -1,17 +1,32 @@
+ZSH_HOME=$HOME/.zsh
+
+###################################################################################
+# Profiler
+###################################################################################
 if [[ -n "$ZSH_DEBUGRC" ]]; then
   zmodload zsh/zprof
 fi
-ZSH_HOME=$HOME/.zsh
 
 ########################################################################################
 # Plugin Manager
+# Antidote is the plugin manager
+# Update plugins by modifying the .zsh_plugins.txt file
 ########################################################################################
+# Downlaod Antidote
+ZSH_ANTIDOTE_VERSION=v2.0.12
+[[ -r $ZSH_HOME/antidote/antidote.zsh ]] || git clone --depth 1 --branch ${ZSH_ANTIDOTE_VERSION} --single-branch -- https://github.com/mattmc3/antidote.git $ZSH_HOME/antidote
 
-# Download Znap, if it's not there yet.
-[[ -r $ZSH_HOME/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git $ZSH_HOME/znap
-source $ZSH_HOME/znap/znap.zsh  # Start Znap
+source $ZSH_HOME/antidote/antidote.zsh
+
+ZSH_PLUGINS=${ZDOTDIR:-$HOME}/.zsh_plugins
+
+# Build antidote plugins to static plugins file
+if [[ ! ${ZSH_PLUGINS}.zsh -nt ${ZSH_PLUGINS}.txt ]]; then
+  antidote bundle <${ZSH_PLUGINS}.txt >|${ZSH_PLUGINS}.zsh
+fi
+
+# Activate plugins
+source ${ZSH_PLUGINS}.zsh
 
 ########################################################################################
 # Environment
@@ -23,16 +38,11 @@ source  $HOME/.env
 ########################################################################################
 # Prompt
 ########################################################################################
-znap prompt sindresorhus/pure
+autoload -Uz promptinit && promptinit && prompt pure
 
 ########################################################################################
-# Plugins
+# Completions
 ########################################################################################
-# znap source marlonrichert/zsh-autocomplete
-znap source xylous/gitstatus
-znap source zsh-users/zsh-syntax-highlighting
-znap install zsh-users/zsh-completions
-znap source zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 # Reset history key bindings to Zsh default
 # () {
@@ -46,22 +56,25 @@ ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 #       bindkey "$key" down-line-or-history
 #    done
 # }
-znap eval fzf 'fzf --zsh'
-znap source Aloxaf/fzf-tab
+eval "$(fzf --zsh)"
 zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab
 ########################################################################################
 # INSTALL COMPLETIONS
 ########################################################################################
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-znap function _pip_completion pip       'eval "$( pip3 completion --zsh )"'
+_pip_completion() {
+  eval "$(pip3 completion --zsh)"
+}
 compctl -K    _pip_completion pip
 
 if command -v "aws_completer" &> /dev/null; then
   aws_completer
 fi
 
-znap function _aws_completion aws       'eval "$(complete -C '/usr/local/bin/aws_completer' aws)"'
+_aws_completion() {
+  eval "$(complete -C '/usr/local/bin/aws_completer' aws)"
+}
 compctl -K    _aws_completion aws
 
 ########################################################################################
@@ -91,3 +104,8 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
   zprof
 fi
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# START: Added by Updated Airflow Breeze autocomplete setup
+source /home/keto/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh
+# END: Added by Updated Airflow Breeze autocomplete setup

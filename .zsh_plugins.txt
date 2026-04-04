@@ -1,0 +1,11 @@
+# .zsh_plugins.txt - comments begin with "#"
+# Basic Zsh plugins are defined in user/repo format
+jeffreytse/zsh-vi-mode
+
+sindresorhus/pure
+# marlonrichert/zsh-autocomplete
+# xylous/gitstatus
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+Aloxaf/fzf-tab

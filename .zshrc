@@ -14,9 +14,15 @@ fi
 ########################################################################################
 # Downlaod Antidote
 ZSH_ANTIDOTE_VERSION=v2.0.12
-[[ -r $ZSH_HOME/antidote/antidote.zsh ]] || git clone --depth 1 --branch ${ZSH_ANTIDOTE_VERSION} --single-branch -- https://github.com/mattmc3/antidote.git $ZSH_HOME/antidote
+ZSH_ANTIDOTE_DIR=$ZSH_HOME/antidote
+[[ -r $ZSH_ANTIDOTE_DIR/antidote.zsh ]] || git clone --depth 1 --branch ${ZSH_ANTIDOTE_VERSION} --single-branch -- https://github.com/mattmc3/antidote.git $ZSH_HOME/antidote
 
-source $ZSH_HOME/antidote/antidote.zsh
+# Load Antidote Option 1
+# source $ZSH_HOME/antidote/antidote.zsh
+
+# Load Antidote Option 2 (lazy load)
+fpath=($ZSH_ANTIDOTE_DIR/functions $fpath)
+autoload -Uz antidote
 
 ZSH_PLUGINS=${ZDOTDIR:-$HOME}/.zsh_plugins
 

@@ -1,2 +1,2 @@
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# /etc/inputrc is loaded automatically by readline (if it exists).
+# Keep this file for user-specific overrides only.

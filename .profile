@@ -32,3 +32,7 @@ if [ -d "$HOME/.cargo/bin" ] ; then
 fi
 
 . "$HOME/.cargo/env"
+
+if [ -d "$HOME/linuxbrew/.linuxbrew/bin" ] ; then
+    PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi

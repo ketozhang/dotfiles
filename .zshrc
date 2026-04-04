@@ -50,18 +50,6 @@ autoload -Uz promptinit && promptinit && prompt pure
 # Completions
 ########################################################################################
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
-# Reset history key bindings to Zsh default
-# () {
-#    local -a prefix=( '\e'{\[,O} )
-#    local -a up=( ${^prefix}A ) down=( ${^prefix}B )
-#    local key=
-#    for key in $up[@]; do
-#       bindkey "$key" up-line-or-history
-#    done
-#    for key in $down[@]; do
-#       bindkey "$key" down-line-or-history
-#    done
-# }
 eval "$(fzf --zsh)"
 zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab
 ########################################################################################

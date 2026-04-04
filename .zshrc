@@ -97,4 +97,4 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
 fi
 
 
-eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+eval "$(brew shellenv)"

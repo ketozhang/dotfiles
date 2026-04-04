@@ -52,9 +52,7 @@ autoload -Uz promptinit && promptinit && prompt pure
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 eval "$(fzf --zsh)"
 zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab
-########################################################################################
-# INSTALL COMPLETIONS
-########################################################################################
+
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 _pip_completion() {
@@ -99,7 +97,4 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
 fi
 
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# START: Added by Updated Airflow Breeze autocomplete setup
-source /home/keto/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh
-# END: Added by Updated Airflow Breeze autocomplete setup
+eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"

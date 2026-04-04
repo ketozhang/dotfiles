@@ -49,6 +49,8 @@ autoload -Uz promptinit && promptinit && prompt pure
 ########################################################################################
 # Completions
 ########################################################################################
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 eval "$(fzf --zsh)"
 zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab

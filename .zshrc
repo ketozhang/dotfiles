@@ -12,7 +12,7 @@ fi
 # Antidote is the plugin manager
 # Update plugins by modifying the .zsh_plugins.txt file
 ########################################################################################
-# Downlaod Antidote
+# Download Antidote
 ZSH_ANTIDOTE_VERSION=v2.0.12
 ZSH_ANTIDOTE_DIR=$ZSH_HOME/antidote
 [[ -r $ZSH_ANTIDOTE_DIR/antidote.zsh ]] || git clone --depth 1 --branch ${ZSH_ANTIDOTE_VERSION} --single-branch -- https://github.com/mattmc3/antidote.git $ZSH_HOME/antidote
@@ -49,10 +49,21 @@ autoload -Uz promptinit && promptinit && prompt pure
 ########################################################################################
 # Completions
 ########################################################################################
+# Download fzf
+FZF_INSTALL_DIR=$HOME/.fzf
+FZF_VERSION=v0.71.0
+[[ -r $FZF_INSTALL_DIR ]] || git clone --depth 1 --branch ${FZF_VERSION}  https://github.com/junegunn/fzf.git $FZF_INSTALL_DIR
+
+# Install fzf
+[[ -r "$FZF_INSTALL_DIR/fzf.zsh" ]] || "$FZF_INSTALL_DIR/install" --no-key-bindings --no-completion --no-update-rc --no-bash --no-fish 1> /dev/null
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load fzf
+eval "$(fzf --zsh)"
+
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
-eval "$(fzf --zsh)"
 zstyle ':completion:*' menu no # Disable default menu, in favor of fzf-tab
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

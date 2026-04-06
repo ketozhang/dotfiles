@@ -110,6 +110,5 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
 fi
 
 
-if command -v brew &> /dev/null; then
-  eval "$(brew shellenv)"
-fi
+[[ -r $HOME/.linuxbrew ]] && eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+[[ -r /home/linuxbrew/.linuxbrew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

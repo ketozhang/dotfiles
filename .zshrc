@@ -99,4 +99,6 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
 fi
 
 
-eval "$(brew shellenv)"
+if command -v brew &> /dev/null; then
+  eval "$(brew shellenv)"
+fi

@@ -53,3 +53,5 @@
 	repo = /Users/keto/.zsh/zsh-users/zsh-autosuggestions
 	repo = /Users/keto/.zsh/zsh-users/zsh-completions
 	repo = /Users/keto/.zsh/zsh-users/zsh-syntax-highlighting
+[advice]
+	detachedHead = false

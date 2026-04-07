@@ -10,12 +10,13 @@
     amend = "!git commit --amend"
     ammend = "!git amend"
     amendall = "!git add -u && git amend"
-    l = "!git log --pretty=format:'%C(yellow)%h %Cred%ad %Cgreen%d %Creset%s' --date=relative"
-    lg = "!git log --oneline --graph"
+    l = "!git log --topo-order --decorate=no --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s' --date=relative"
+    ll = "!git log --topo-order --decorate=no --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s %Cgreen%d' --date=relative"
+    lg = "!git log --graph --topo-order --oneline --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s %Cgreen%d' --date=relative"
     recent = "!f() { git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n${1-10}; }; f"
     fixup = "!git commit --fixup"
+    squash = "!git commit --squash"
     add-fixup = "!git add -u && git fixup"
-    fu = "!git add-fixup"
     autosquash = "!git rebase -i --autosquash"
     set-upstream = "!git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)"
 [core]
@@ -53,3 +54,5 @@
 	repo = /Users/keto/.zsh/zsh-users/zsh-autosuggestions
 	repo = /Users/keto/.zsh/zsh-users/zsh-completions
 	repo = /Users/keto/.zsh/zsh-users/zsh-syntax-highlighting
+[rebase]
+	autosquash = false

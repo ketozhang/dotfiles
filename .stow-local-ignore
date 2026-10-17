@@ -4,6 +4,7 @@
 python
 iterm
 Makefile
+^/AGENTS.md
 
 
 # STOW DEFAULTS

@@ -5,7 +5,7 @@ DIRECTORIES := ${HOME}/.local/bin
 all: stow check
 
 stow: $(ENVFILES) $(DIRECTORIES)
-	stow -v -t ${HOME} .
+	stow -v --no-folding -t ${HOME} .
 
 $(ENVFILES):
 	touch $@

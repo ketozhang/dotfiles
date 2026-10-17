@@ -1,9 +1,9 @@
-.codex
-.claude
 .copilot
 python
 iterm
 Makefile
+^/AGENTS.md
+^/\.claude/settings\.local\.json
 
 
 # STOW DEFAULTS
